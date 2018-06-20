@@ -2,6 +2,7 @@
 Demo SMART on FHIR App
 
 git clone https://github.com/devmikey/nexus.git
+
 cd nexus
 npm install
 
