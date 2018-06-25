@@ -25,7 +25,12 @@ app.use(session({
 var client_id=process.env.AUTH0_CLIENT_ID;
 var secret=process.env.AUTH0_CLIENT_SECRET;
 var scope='patient/*.read'
-var redirectUri = process.env.LOCAL_SMART_SVR+'/gpview';
+
+var redirectUri = process.env.AZURE_SMART_SVR+'/gpview';
+if (process.env.SMART_SVR=='LOCAL')
+{
+  redirectUri = process.env.LOCAL_SMART_SVR+'/gpview';
+}
 
 app.get('/launch', function(req, res) {
   var serviceUri = req.query.iss;
