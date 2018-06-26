@@ -58,18 +58,16 @@ export class GpRecordComponent {
     if (this.response==undefined) return(<p>Loading...</p>);
     let res = JSON.parse(this.response);
     return (
-      <div class="container">
-
+      <div>
           <a onClick={this.openMenu.bind(this)} role="button" class="navbar-burger" data-target="navMenu" aria-label="menu" aria-expanded="false">
             <span aria-hidden="true"></span>
             <span aria-hidden="true"></span>
             <span aria-hidden="true"></span>
           </a>
-
           <div class={this.toggle ? 'navbar-menu is-active' : 'navbar-menu'} id="navMenu">      
             <a onClick={this.handleClick.bind(this, 'SUM')} class={this.recordtype == 'SUM' ? 'panel-block is-active' : 'panel-block'}>Summary</a>
             <a onClick={this.handleClick.bind(this, 'ENC')} class={this.recordtype == 'ENC' ? 'panel-block is-active' : 'panel-block'}>Encounters</a>
-            <a onClick={this.handleClick.bind(this, 'CLI')} class={this.recordtype == 'CLI' ? 'panel-block is-active' : 'panel-block'}>Clinical Items</a>
+            <a onClick={this.handleClick.bind(this, 'CLI')} class={this.recordtype == 'CLI' ? 'panel-block is-active' : 'panel-block'}>Clinical</a>
             <a onClick={this.handleClick.bind(this, 'ADM')} class={this.recordtype == 'ADM' ? 'panel-block is-active' : 'panel-block'}>Administrative</a>
             <a onClick={this.handleClick.bind(this, 'REF')} class={this.recordtype == 'REF' ? 'panel-block is-active' : 'panel-block'}>Referrals</a>
             <a onClick={this.handleClick.bind(this, 'IMM')} class={this.recordtype == 'IMM' ? 'panel-block is-active' : 'panel-block'}>Immunisations</a>
@@ -79,9 +77,7 @@ export class GpRecordComponent {
             <a onClick={this.handleClick.bind(this, 'INV')} class={this.recordtype == 'INV' ? 'panel-block is-active' : 'panel-block'}>Investigations</a>
             <a onClick={this.handleClick.bind(this, 'ALL')} class={this.recordtype == 'ALL' ? 'panel-block is-active' : 'panel-block'}>Allergies</a>
           </div>
-
           <gprecord-panel section={res.entry[0].resource.section[0].text.div}></gprecord-panel>
-
       </div>
     );
   }

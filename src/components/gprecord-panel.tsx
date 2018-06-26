@@ -12,7 +12,7 @@ export class GPRecordPanel {
 
   render() {
     return (
-      <div class="panel" innerHTML={this.section}></div>
+      <div innerHTML={this.section}></div>
     );
   }
 }
